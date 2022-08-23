@@ -61,7 +61,7 @@ import 'cypress-xpath'
 into:  cypress/support/e2e.js
 
 
-# 2. Install HTML reporter
+## 2. Install HTML reporter
 ```
 npm install multiple-cucumber-html-reporter --save-dev
 
@@ -87,16 +87,16 @@ const report = require("multiple-cucumber-html-reporter");
    },
   });
 ```
-# 2.2 Download cucumber formater according to your system from:
+## 2.2 Download cucumber formater according to your system from:
 
 
 https://github.com/cucumber/json-formatter/releases/tag/v19.0.0 
 
-# 2.3 Pass it into root of project and rename on:
+## 2.3 Pass it into root of project and rename on:
 ```
 cucumber-json-formatter.exe
 ```
-# 2.4 Add to pacjage.json path where to create results:
+## 2.4 Add to pacjage.json path where to create results:
 
 ```
 "cypress-cucumber-preprocessor": {
@@ -113,7 +113,7 @@ cucumber-json-formatter.exe
    }
 ```
 
-# 3. Run tests
+## 3. Run tests
 ```
 npx cypress open   (it will open cypress GUI where you can run tests)  
 npm run test:      (run test in headless mode )
@@ -126,9 +126,9 @@ npm run test:      (run test in headless mode )
 ```
 node cucumber-html-report.js
 ```
-# 4.    If some problem, delete node_moduls,  then: npm i
+## 4.    If some problem, delete node_moduls,  then: npm i
 
-# 5. Package.json looks like:
+## 5. Package.json looks like:
 
 ```
 {
@@ -169,7 +169,7 @@ node cucumber-html-report.js
   ]
 }
 ```
-# 6. cypress.config.js looks like:
+## 6. cypress.config.js looks like:
 ```
 const { defineConfig } = require("cypress");
 const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
@@ -192,7 +192,7 @@ module.exports = defineConfig({
   },
 });
 ```
-# 7. cucumber-html-reporter.js looks like:
+## 7. cucumber-html-reporter.js looks like:
 ```
 const report = require("multiple-cucumber-html-reporter");
 report.generate({
