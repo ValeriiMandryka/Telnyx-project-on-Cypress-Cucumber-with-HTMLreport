@@ -24,11 +24,12 @@ npm i cypress-xpath
 Then add path to plugin: 
 ```
 import 'cypress-xpath'
-
-into:  cypress/support/e2e.js
 ```
 
-## 5. Install HTML reporter
+into:  cypress/support/e2e.js
+
+
+# 5. Install HTML reporter
 ```
 npm install multiple-cucumber-html-reporter --save-dev
 
@@ -56,9 +57,9 @@ const report = require("multiple-cucumber-html-reporter");
 ```
 Then download cucumber formater according to your system from:
 
-```
+
 https://github.com/cucumber/json-formatter/releases/tag/v19.0.0 
-```
+
 And pass it into root of project and rename on:
 ```
 cucumber-json-formatter.exe
