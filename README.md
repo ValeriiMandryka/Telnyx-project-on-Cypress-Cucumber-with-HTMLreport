@@ -18,6 +18,7 @@ npm install @badeball/cypress-cucumber-preprocesso
 ```
 npm install --save-dev @cypress/browserify-preprocessor
 ```
+Whhen dependences was 
 ## 4. Install HTML reporter
 ```
 npm install multiple-cucumber-html-reporter --save-dev
