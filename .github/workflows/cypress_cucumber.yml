@@ -38,17 +38,17 @@ jobs:
       if: always()
       with:
           name: HTML results
-          path: ./report
+          path: ./reports/cucumber-htmlreport.html
     - name: Publishing Allure artifact to Github Actions
       uses: actions/upload-artifact@v2
       if: always()
       with:
           name: HTML-report
-          path: reports/cucumber-htmlreport/   
+          path: ./reports/cucumber-htmlreport.html   
     - name: Deploy to pages
       if: always()
       uses: peaceiris/actions-gh-pages@v3.7.3
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./report
+          publish_dir: ./reports/cucumber-htmlreport.html
