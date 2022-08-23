@@ -1,0 +1,54 @@
+name: GH-Actions-Cypress-Cucumber
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    # runs-on: ubuntu-latest
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - uses: actions/setup-node@v2
+      with:
+          node-version: '14.x'
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Cypress
+      run: npm install cypress --save-dev
+    - name: Install cypress-cucumber-preprocessor
+      run: npm install @badeball/cypress-cucumber-preprocessor
+    - name: Install cypress-browserify-preprocessor
+      run: npm install --save-dev @cypress/browserify-preprocessor
+    - name: Install reporter dev
+      run: npm install --save-dev mocha-allure-reporter allure-commandline
+    - name: Run Cypress_cucumber tests
+      run: npm run test
+    - name: Generate Report
+      if: always()
+      run: npm run allure-generate
+    - name: Upload Results
+      uses: actions/upload-artifact@v1
+      if: always()
+      with:
+          name: allure-results
+          path: ./allure-results
+    - name: Publishing Allure artifact to Github Actions
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+          name: allure-report
+          path: allure-report   
+    - name: Deploy to pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v3.7.3
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-report
