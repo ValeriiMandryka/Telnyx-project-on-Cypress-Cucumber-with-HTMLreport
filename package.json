@@ -11,12 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^12.0.1",
-    "cypress": "^10.6.0"
+    "cypress": "^10.6.0",
+    "cypress-xpath": "^2.0.1"
   },
   "devDependencies": {
     "@cypress/browserify-preprocessor": "^3.0.2",
     "multiple-cucumber-html-reporter": "^1.21.6"
-  }, 
+  },
   "cypress-cucumber-preprocessor": {
     "json": {
       "enabled": true,
@@ -27,6 +28,10 @@
       "enabled": true,
       "output": "jsonlogs/messages.ndjson"
     }
-  
-   }
+  },
+  "stepDefinitions": [
+    "cypress/e2e/**/*.{js,ts}",
+    "cypress/e2e/.{js,ts}",
+    "cypress/support/step_definitions/**/*.{js,ts}"
+  ]
 }
