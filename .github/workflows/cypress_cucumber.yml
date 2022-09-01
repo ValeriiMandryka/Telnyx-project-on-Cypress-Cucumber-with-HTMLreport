@@ -33,18 +33,18 @@ jobs:
     - name: Generate Report
       if: always()
       run: node cucumber-html-report.js
-    - name: Upload Results
-      uses: actions/upload-artifact@v1
-      if: always()
-      with:
+    #- name: Upload Results
+     # uses: actions/upload-artifact@v1
+    #  if: always()
+     # with:
           name: HTML results
-          path: ./reports/cucumber-htmlreport.html
-    - name: Publishing Allure artifact to Github Actions
-      uses: actions/upload-artifact@v2
-      if: always()
-      with:
-          name: HTML-report
-          path: ./reports/cucumber-htmlreport.html   
+     #     path: ./reports/cucumber-htmlreport.html
+  #  - name: Publishing Allure artifact to Github Actions
+   #   uses: actions/upload-artifact@v2
+   #   if: always()
+    #  with:
+   #       name: HTML-report
+   #       path: ./reports/cucumber-htmlreport.html   
     - name: Deploy to pages
       if: always()
       uses: peaceiris/actions-gh-pages@v3.7.3
